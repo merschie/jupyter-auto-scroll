@@ -1,0 +1,81 @@
+{
+  "name": "jupyter-auto-scroll",
+  "displayName": "Jupyter Auto Scroll",
+  "description": "Automatically scrolls to the currently executing cell while running a Jupyter notebook.",
+  "version": "0.0.1",
+  "publisher": "Merschie",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/merschie/jupyter-auto-scroll.git"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Notebooks",
+    "Other"
+  ],
+  "keywords": [
+    "jupyter",
+    "notebook",
+    "scroll",
+    "auto-scroll",
+    "ipynb"
+  ],
+  "activationEvents": [
+    "onNotebook:jupyter-notebook"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jupyterAutoScroll.enable",
+        "title": "Automatisches Scrollen aktivieren",
+        "category": "Jupyter Auto Scroll",
+        "icon": "$(circle-large-outline)"
+      },
+      {
+        "command": "jupyterAutoScroll.disable",
+        "title": "Automatisches Scrollen deaktivieren",
+        "category": "Jupyter Auto Scroll",
+        "icon": "$(check)"
+      }
+    ],
+    "menus": {
+      "notebook/toolbar": [
+        {
+          "command": "jupyterAutoScroll.enable",
+          "group": "navigation",
+          "when": "notebookType == jupyter-notebook && !jupyterAutoScroll.enabled"
+        },
+        {
+          "command": "jupyterAutoScroll.disable",
+          "group": "navigation",
+          "when": "notebookType == jupyter-notebook && jupyterAutoScroll.enabled"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Jupyter Auto Scroll",
+      "properties": {
+        "jupyterAutoScroll.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Beim Start einer neuen Zellausführung automatisch dorthin scrollen."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.75.0",
+    "@vscode/vsce": "^4.0.0",
+    "typescript": "^5.4.0"
+  }
+}
