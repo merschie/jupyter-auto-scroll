@@ -2,7 +2,7 @@
   "name": "jupyter-auto-scroll",
   "displayName": "Jupyter Auto Scroll",
   "description": "Automatically scrolls to the currently executing cell while running a Jupyter notebook.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "Merschie",
   "license": "MIT",
   "repository": {

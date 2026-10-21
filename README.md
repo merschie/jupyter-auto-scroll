@@ -27,6 +27,10 @@ Works with any notebook of type `jupyter-notebook` (the built-in `.ipynb` suppor
 
 ## Release Notes
 
+### 0.0.2
+
+Removed debug output channel; added repository link.
+
 ### 0.0.1
 
 Initial release.
